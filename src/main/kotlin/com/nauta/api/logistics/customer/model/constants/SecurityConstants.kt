@@ -1,9 +1,9 @@
 package com.nauta.api.logistics.customer.model.constants
 
 object SecurityConstants {
-    const val JWT_SECRET_KEY: String = "JWT_SECRET"
-    const val JWT_SECRET_DEFAULT_VALUE: String = "jxgEQeXHuPq8VdbyYFNkANdudQ53YUn4"
-    const val JWT_HEADER: String = "Authorization"
+    const val JWT_SECRET_KEY = "JWT_SECRET"
+    const val JWT_SECRET_DEFAULT_VALUE = "jxgEQeXHuPq8VdbyYFNkANdudQ53YUn4"
+    const val JWT_HEADER = "Authorization"
     const val JWT_ISSUER = "Customer Logistics API"
     const val JWT_SUBJECT = "JWT Token"
     const val JWT_EXPIRATION = 30_000_000
@@ -38,5 +38,4 @@ object SecurityConstants {
 
     const val AUTHENTICATION_ERROR = "authentication-error"
     const val AUTHENTICATION_FAILED_MESSAGE = "Authentication failed"
-
 }

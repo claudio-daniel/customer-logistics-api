@@ -25,7 +25,7 @@ class CustomerLogisticDataController(
             ApiResponse(responseCode = "200", description = "Register Done"),
             ApiResponse(responseCode = "400", description = "Bad Request"),
             ApiResponse(responseCode = "401", description = "Unauthorized"),
-            ApiResponse(responseCode = "401", description = "Forbidden"),
+            ApiResponse(responseCode = "403", description = "Forbidden"),
             ApiResponse(responseCode = "500", description = "Server Error")
         ]
     )
