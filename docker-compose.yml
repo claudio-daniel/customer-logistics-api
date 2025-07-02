@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: customer-logistics-db
+      POSTGRES_USER: svcCustomerLogistics
+      POSTGRES_PASSWORD: 2c860417-4b8f-4607-a446-753230383edd
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/customer-logistics-db
+      SPRING_DATASOURCE_USERNAME: svcCustomerLogistics
+      SPRING_DATASOURCE_PASSWORD: 2c860417-4b8f-4607-a446-753230383edd
+    ports:
+      - "8080:8080"
+
+volumes:
+  pgdata:
