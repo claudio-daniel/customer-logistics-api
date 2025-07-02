@@ -1,0 +1,17 @@
+{
+  "containerName": "MEDU26",
+  "orders": [
+    {
+      "purchase": "PO001",
+      "invoices": [
+        {
+          "invoice": "IN001"
+        }
+      ]
+    },
+    {
+      "purchase": "PO002",
+      "invoices": []
+    }
+  ]
+}

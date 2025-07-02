@@ -31,7 +31,7 @@ fun List<OrderDTO>?.toNewOrderEntities(): MutableList<OrderEntity> = this.orEmpt
     .map { orderDTO -> toOrderEntity(orderDTO) }
     .toMutableList()
 
-fun List<OrderEntity>?.toNewOrderDTOs(): Set<OrderDTO> {
+fun List<OrderEntity>?.toOrderDTOs(): Set<OrderDTO> {
     return this.orEmpty()
         .map { orderEntity -> toOrderDTO(orderEntity) }
         .toSet()

@@ -2,6 +2,7 @@ package com.nauta.api.logistics.customer.controller
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.nauta.api.logistics.customer.config.SecurityConfigTest
+import com.nauta.api.logistics.customer.mock.CUSTOMER_LOGISTIC_DATA_BASE_URL
 import com.nauta.api.logistics.customer.mock.mockRegisterCustomerLogisticDataException
 import com.nauta.api.logistics.customer.mock.mockResponseOK
 import com.nauta.api.logistics.customer.mock.mockValidRequestBody
@@ -27,10 +28,9 @@ import org.springframework.test.web.servlet.patch
 class CustomerLogisticDataControllerTest(
     @Autowired val mockMvc: MockMvc
 ) {
+
     @MockkBean
     lateinit var bookingService: BookingService<BookingEntity, RegisterBookingApiRequest>
-
-    private val customerLogisticDataBaseUrl = "/api/email"
 
     @Test
     fun `should register customer logistic data with valid request`() {
@@ -39,9 +39,9 @@ class CustomerLogisticDataControllerTest(
 
         every { bookingService.registerBooking(request) } returns expectedResponse
 
-        mockMvc.patch(customerLogisticDataBaseUrl) {
-            contentType = org.springframework.http.MediaType.APPLICATION_JSON
-            accept = org.springframework.http.MediaType.APPLICATION_JSON
+        mockMvc.patch(CUSTOMER_LOGISTIC_DATA_BASE_URL) {
+            contentType = MediaType.APPLICATION_JSON
+            accept = MediaType.APPLICATION_JSON
             content = jacksonObjectMapper().writeValueAsString(request)
         }.andExpect {
             status { isOk() }
@@ -55,7 +55,7 @@ class CustomerLogisticDataControllerTest(
 
         every { bookingService.registerBooking(request) } returns expectedResponse
 
-        mockMvc.patch(customerLogisticDataBaseUrl) {
+        mockMvc.patch(CUSTOMER_LOGISTIC_DATA_BASE_URL) {
             contentType = MediaType.APPLICATION_JSON
             accept = MediaType.APPLICATION_JSON
             content = jacksonObjectMapper().writeValueAsString(request)
@@ -71,7 +71,7 @@ class CustomerLogisticDataControllerTest(
 
         every { bookingService.registerBooking(request) } returns expectedResponse
 
-        mockMvc.patch(customerLogisticDataBaseUrl) {
+        mockMvc.patch(CUSTOMER_LOGISTIC_DATA_BASE_URL) {
             contentType = MediaType.APPLICATION_JSON
             accept = MediaType.APPLICATION_JSON
             content = jacksonObjectMapper().writeValueAsString(request)
@@ -86,7 +86,7 @@ class CustomerLogisticDataControllerTest(
 
         every { bookingService.registerBooking(request) } throws mockRegisterCustomerLogisticDataException()
 
-        mockMvc.patch(customerLogisticDataBaseUrl) {
+        mockMvc.patch(CUSTOMER_LOGISTIC_DATA_BASE_URL) {
             contentType = MediaType.APPLICATION_JSON
             accept = MediaType.APPLICATION_JSON
             content = jacksonObjectMapper().writeValueAsString(request)
@@ -100,7 +100,7 @@ class CustomerLogisticDataControllerTest(
 
         every { bookingService.registerBooking(mockValidRequestBody()) } returns mockResponseOK()
 
-        mockMvc.patch(customerLogisticDataBaseUrl) {
+        mockMvc.patch(CUSTOMER_LOGISTIC_DATA_BASE_URL) {
             contentType = MediaType.APPLICATION_JSON
             accept = MediaType.APPLICATION_JSON
         }.andExpect {

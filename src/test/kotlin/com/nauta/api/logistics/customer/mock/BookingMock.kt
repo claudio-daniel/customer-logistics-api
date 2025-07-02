@@ -8,7 +8,9 @@ import com.nauta.api.logistics.customer.util.ObjectMapperUtil
 
 val objectMapperUtil: ObjectMapperUtil = ObjectMapperUtil()
 
-const val token =
+const val CUSTOMER_LOGISTIC_DATA_BASE_URL = "/api/email"
+
+const val TOKEN =
     "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBMb2dpc3RpY3MgQVBJIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJ2YWxlQGdtYWlsLmNvbSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzUxMzIwNTcwLCJleHAiOjE3NTEzNTA1NzB9.GCUa9ziSyMhm93bngsS6QZ4L6nG0osvpWu1aeIIzwJk"
 
 fun mockValidRequestBody(): RegisterBookingApiRequest =

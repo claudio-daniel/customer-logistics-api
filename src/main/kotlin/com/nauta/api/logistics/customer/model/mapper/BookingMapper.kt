@@ -10,7 +10,7 @@ fun toBookingResponse(bookingEntity: BookingEntity): RegisteredBookingApiRespons
         id = bookingEntity.id.toString(),
         booking = bookingEntity.code,
         containers = bookingEntity.containers.toContainerDTOs(),
-        orders = bookingEntity.orders.toNewOrderDTOs()
+        orders = bookingEntity.orders.toOrderDTOs()
     )
 
 fun toNewBookingEntity(customerId: Long, registerBookingApiRequest: RegisterBookingApiRequest): BookingEntity =
