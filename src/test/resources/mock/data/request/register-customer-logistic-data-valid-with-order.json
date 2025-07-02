@@ -1,0 +1,11 @@
+{
+  "booking": "BK123",
+  "orders": [
+    {
+      "purchase": "PO123",
+      "invoices": [
+        { "invoice": "IN123" }
+      ]
+    }
+  ]
+}

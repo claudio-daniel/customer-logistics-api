@@ -23,9 +23,11 @@ object SecurityConstants {
     const val USER_ENDPOINT = "/user"
     const val ERROR_ENDPOINT = "/error"
     const val INVALID_SESSION_ENDPOINT = "/invalidSession"
+    const val API_DOC_ENDPOINT = "/swagger-ui.html"
 
     const val ORDERS_ENDPOINT = "/api/orders/**"
     const val CONTAINERS_ENDPOINT = "/api/containers/**"
+    const val REGISTER_LOGISTIC_ENDPOINT = "/api/email"
 
     const val USER_ROLE = "USER"
     const val ADMIN_ROLE = "ADMIN"
