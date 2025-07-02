@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "24ad2ee0-2b85-4300-bf67-a8604968e0f2",
+		"name": "Nauta Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26594272"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"john@gmail.com\",\n    \"password\": \"12345\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host-local}}/auth/login",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john@gmail.com\",\n    \"mobileNumber\": \"123321123\",\n    \"pwd\": \"12345678\",\n    \"role\": \"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host-local}}/register",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "data",
+			"item": [
+				{
+					"name": "containers",
+					"item": [
+						{
+							"name": "find container orders",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBMb2dpc3RpY3MgQVBJIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJsdXpAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTE0NzAxOTUsImV4cCI6MTc1MTUwMDE5NX0.ALRrsfgUC8gEwu_x3svtGWRg7_ia8Rk1K-W8Cn5GTKk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host-local}}/api/containers/:containerId/orders",
+									"host": [
+										"{{host-local}}"
+									],
+									"path": [
+										"api",
+										"containers",
+										":containerId",
+										"orders"
+									],
+									"variable": [
+										{
+											"key": "containerId",
+											"value": "45"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find containers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBMb2dpc3RpY3MgQVBJIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJsdXpAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTE0NzAzNDIsImV4cCI6MTc1MTUwMDM0Mn0.SHz8Pj3DE7FOo-ylV_Aivb_qCiH3q9-WFVkoArxljVs",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host-local}}/api/containers",
+									"host": [
+										"{{host-local}}"
+									],
+									"path": [
+										"api",
+										"containers"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "orders",
+					"item": [
+						{
+							"name": "find order containers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBMb2dpc3RpY3MgQVBJIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJsdXpAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTE0NzAzNDIsImV4cCI6MTc1MTUwMDM0Mn0.SHz8Pj3DE7FOo-ylV_Aivb_qCiH3q9-WFVkoArxljVs",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host-local}}/api/orders/:purchaseId/containers",
+									"host": [
+										"{{host-local}}"
+									],
+									"path": [
+										"api",
+										"orders",
+										":purchaseId",
+										"containers"
+									],
+									"variable": [
+										{
+											"key": "purchaseId",
+											"value": "PO002"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find orders",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBMb2dpc3RpY3MgQVBJIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJsdXpAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTE0NzAzNDIsImV4cCI6MTc1MTUwMDM0Mn0.SHz8Pj3DE7FOo-ylV_Aivb_qCiH3q9-WFVkoArxljVs",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host-local}}/api/orders",
+									"host": [
+										"{{host-local}}"
+									],
+									"path": [
+										"api",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "register customer logistic data",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBMb2dpc3RpY3MgQVBJIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJsdXpAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTE0NzAzNDIsImV4cCI6MTc1MTUwMDM0Mn0.SHz8Pj3DE7FOo-ylV_Aivb_qCiH3q9-WFVkoArxljVs",
+								"type": "text"
+							},
+							{
+								"key": "X-XSRF-TOKEN",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBMb2dpc3RpY3MgQVBJIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJjbGF1ZGlvQGdtYWlsLmNvbSIsImF1dGhvcml0aWVzIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzUxNDY5NTgxLCJleHAiOjE3NTE0OTk1ODF9.xJqjKzScKO9HTjYwo_08FVl-sE6gk_A29geMLIKF9ig",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"booking\": \"CAR-0013\",\n    \"containers\": [\n        {\n            \"container\": \"MEDU27\"\n        },\n        {\n            \"container\": \"MEDU28\"\n        }\n    ],\n    \"orders\": [\n        {\n            \"purchase\": \"PO0024\",\n            \"invoices\": [\n                {\n                    \"invoice\": \"IN0044\"\n                }\n            ]\n        },\n             {\n            \"purchase\": \"PO00334\",\n            \"invoices\": [\n              \n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host-local}}/api/email",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"api",
+								"email"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host-local",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "host-login",
+			"value": "http://localhost:9090",
+			"type": "string"
+		}
+	]
+}
