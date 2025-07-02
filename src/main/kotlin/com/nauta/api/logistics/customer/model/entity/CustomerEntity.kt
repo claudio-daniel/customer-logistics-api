@@ -40,4 +40,8 @@ class CustomerEntity(
 
         return this
     }
+
+    fun verifyId(): Boolean {
+        return this.id != null && this.id!! > 0
+    }
 }

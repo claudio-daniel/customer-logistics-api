@@ -1,0 +1,14 @@
+{
+  "booking": "BK001",
+  "containers": [
+    { "container": "MEDU1234567" }
+  ],
+  "orders": [
+    {
+      "purchase": "PO123",
+      "invoices": [
+        { "invoice": "IN123" }
+      ]
+    }
+  ]
+}
