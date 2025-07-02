@@ -6,7 +6,7 @@ import com.nauta.api.logistics.customer.model.api.request.LoginRequestDTO
 import com.nauta.api.logistics.customer.model.api.request.RegisterCustomerRequest
 import com.nauta.api.logistics.customer.model.api.response.LoginResponseDTO
 import com.nauta.api.logistics.customer.model.constants.SecurityConstants
-import com.nauta.api.logistics.customer.model.mapper.CustomerMapper
+import com.nauta.api.logistics.customer.model.mapper.toCustomerEntity
 import com.nauta.api.logistics.customer.repository.CustomerRepository
 import com.nauta.api.logistics.customer.service.CustomerService
 import org.springframework.http.HttpStatus
@@ -23,7 +23,6 @@ class CustomerServiceImpl(
     private val customerRepository: CustomerRepository,
     private val passwordEncoder: PasswordEncoder,
     private val authenticationManager: AuthenticationManager,
-    private val customerMapper: CustomerMapper,
     private val jwtTokenGeneratorFilter: JWTTokenGeneratorFilter,
 ) : CustomerService {
 
@@ -59,7 +58,7 @@ class CustomerServiceImpl(
             return registerCustomerRequest
                 .let { customerRequest -> passwordEncoder.encode(customerRequest.pwd) to customerRequest }
                 .let { (encryptedPassword, customerRequest) ->
-                    customerMapper.toCustomerEntity(customerRequest, encryptedPassword)
+                    toCustomerEntity(customerRequest, encryptedPassword)
                         .loadAssociations()
                 }
                 .let { customerToSave -> customerRepository.save(customerToSave) }

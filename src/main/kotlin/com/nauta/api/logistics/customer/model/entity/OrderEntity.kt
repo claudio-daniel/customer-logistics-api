@@ -1,5 +1,6 @@
 package com.nauta.api.logistics.customer.model.entity
 
+import com.nauta.api.logistics.customer.model.mapper.addAllInvoiceEntities
 import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -39,8 +40,8 @@ class OrderEntity(
         this.invoices.forEach { invoice -> invoice.order = this }
     }
 
-    fun addInvoices(invoices: MutableList<InvoiceEntity>) {
-        this.invoices.addAll(invoices)
+    fun refreshInvoices(invoices: MutableList<InvoiceEntity>) {
+        this.invoices.addAllInvoiceEntities(invoices)
     }
 
     override fun equals(other: Any?): Boolean {

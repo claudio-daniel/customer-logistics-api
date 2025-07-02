@@ -56,7 +56,7 @@ class BookingEntity(
         this.containers.addAllContainerEntities(newContainers)
     }
 
-    fun refreshOrders(newOrders: MutableSet<OrderEntity>) {
-        this.orders.addAllOrderEntities(newOrders)
+    fun refreshOrders(ordersToUpdate: MutableSet<OrderEntity>) {
+        this.orders.addAllOrderEntities(ordersToUpdate)
     }
 }

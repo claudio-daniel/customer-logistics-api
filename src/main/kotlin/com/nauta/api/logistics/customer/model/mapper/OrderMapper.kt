@@ -21,7 +21,6 @@ fun toOrderDTO(orderEntity: OrderEntity): OrderDTO =
         invoices = orderEntity.invoices.toInvoiceDTOs()
     )
 
-
 fun toNewOrdersFromRequest(registerBookingApiRequest: RegisterBookingApiRequest): MutableSet<OrderEntity> =
     registerBookingApiRequest.orders
         .orEmpty()
@@ -38,15 +37,19 @@ fun List<OrderEntity>?.toNewOrderDTOs(): Set<OrderDTO> {
         .toSet()
 }
 
-fun MutableList<OrderEntity>.addAllOrderEntities(newOrders: MutableSet<OrderEntity>): MutableList<OrderEntity> {
-    this.toMutableSet()
-        .forEach { registeredOrder ->
-            newOrders
-                .filter { newOrder -> newOrder.purchase == registeredOrder.purchase }
-                .map { newOrder -> registeredOrder.invoices.addAllInvoiceEntities(newOrder.invoices) }
-        }
+fun MutableList<OrderEntity>.addAllOrderEntities(ordersToUpdate: MutableSet<OrderEntity>): MutableList<OrderEntity> {
 
-    this.addAll(newOrders)
+    val refreshedOrders = this.toMutableSet()
+        .map { registeredOrder ->
+            ordersToUpdate.filter { orderToCheck -> orderToCheck.purchase == registeredOrder.purchase }
+                .map { existingOrder -> registeredOrder.refreshInvoices(existingOrder.invoices) }
+
+            registeredOrder
+        }.toMutableSet()
+
+    refreshedOrders.addAll(ordersToUpdate)
+
+    this.addAll(refreshedOrders)
 
     return this
 }

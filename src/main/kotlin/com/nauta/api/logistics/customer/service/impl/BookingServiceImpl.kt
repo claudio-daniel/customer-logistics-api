@@ -82,6 +82,6 @@ class BookingServiceImpl(
         existingBookingToUpdate: BookingEntity,
         registerBookingApiRequest: RegisterBookingApiRequest
     ) {
-        existingBookingToUpdate.refreshOrders(newOrders = toNewOrdersFromRequest(registerBookingApiRequest))
+        existingBookingToUpdate.refreshOrders(ordersToUpdate = toNewOrdersFromRequest(registerBookingApiRequest))
     }
 }

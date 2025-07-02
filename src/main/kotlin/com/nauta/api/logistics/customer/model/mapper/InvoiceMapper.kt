@@ -1,6 +1,5 @@
 package com.nauta.api.logistics.customer.model.mapper
 
-import com.nauta.api.logistics.customer.model.api.dto.ContainerDTO
 import com.nauta.api.logistics.customer.model.api.dto.InvoiceDTO
 import com.nauta.api.logistics.customer.model.entity.InvoiceEntity
 import java.time.ZonedDateTime
@@ -19,7 +18,6 @@ fun Set<InvoiceDTO>.toInvoiceEntities(): MutableList<InvoiceEntity> = this.map {
 
 fun MutableList<InvoiceEntity>.toInvoiceDTOs(): Set<InvoiceDTO> = this.map { toInvoiceResponse(it) }
     .toSet()
-
 
 fun MutableList<InvoiceEntity>.addAllInvoiceEntities(newInvoices: MutableList<InvoiceEntity>): MutableList<InvoiceEntity> {
     this.addAll(newInvoices.toMutableSet())
